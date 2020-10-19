@@ -7,7 +7,7 @@ from . forms import ArticleForm
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator
 from django.db.models import Q
-
+from django.utils.html import strip_tags
 # Create your views here.
 def article_list(request):
     search = request.GET.get('search')
@@ -24,6 +24,15 @@ def article_list(request):
     paginator = Paginator(article_list, 3)
     page = request.GET.get('page')
     articles = paginator.get_page(page)
+    md = markdown.Markdown(
+        extensions=[
+        'markdown.extensions.extra',
+        'markdown.extensions.codehilite',
+        'markdown.extensions.toc',
+        ])
+    for article in articles:
+        article.body = strip_tags(md.convert(article.body))
+    
     context = {'articles': articles, 'search': search}
     return render(request, 'article/list.html', context)
 

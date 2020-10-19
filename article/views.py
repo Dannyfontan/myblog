@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.utils.html import strip_tags
+
 # Create your views here.
 def article_list(request):
     search = request.GET.get('search')

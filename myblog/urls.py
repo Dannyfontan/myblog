@@ -21,6 +21,5 @@ urlpatterns = [
     path('', views.testpage, name='mainpage'),
     path('admin/', admin.site.urls),
     path('article/', include('article.urls', namespace='article')),
-    path('login/', include('userprofile.urls', namespace='userprofile')),
     path('mdeditor/', include('mdeditor.urls')),
 ]

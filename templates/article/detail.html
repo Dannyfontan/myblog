@@ -4,7 +4,7 @@
 
 <!-- 写入 base.html 中定义的 title -->
 {% block title %}
-    文章详情
+{{ article.title }}
 {% endblock title %}
 
 <!-- 写入 base.html 中定义的 content -->
@@ -34,15 +34,4 @@
         </div>
     </div>
 </div>
-
-<form 
-      style="display:none;" 
-      id="safe_delete"
-      action="{% url 'article:article_safe_delete' article.id %}" 
-      method="POST"
-      >
-    {% csrf_token %}
-    <button type="submit">发送</button>
-</form>
-
 {% endblock content %}

@@ -28,6 +28,7 @@ class Article(models.Model):
     body = MDTextField()
     created = models.DateTimeField(default=timezone.now)
     updated = models.DateTimeField(auto_now=True)
+    
     class Meta:
         ordering = ('-updated',)
     

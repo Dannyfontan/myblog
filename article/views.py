@@ -47,3 +47,16 @@ def article_detail(request, id):
     article.body = md.convert(article.body)
     context = {'article': article, 'toc': md.toc}
     return render(request, 'article/detail.html', context)
+
+def article_columnlist(request):
+    column_name = request.GET.get('column')
+
+    if column_name:
+        column_list = Article.objects.filter(title=column_name)
+        
+    else:
+        column_name = ""
+        column_list = ""
+
+    context = {'column_list' : column_list}
+    return render(request, 'article/columnlist.html', context)

@@ -1,0 +1,38 @@
+<!-- extends表明此页面继承自 base.html 文件 -->
+{% extends "base.html" %}
+{% load staticfiles %}
+
+<!-- 写入 base.html 中定义的 title -->
+{% block title %}
+wadawd
+{% endblock title %}
+
+<!-- 写入 base.html 中定义的 content -->
+{% block content %}
+
+<!-- 文章详情 -->
+<div class="container">
+    {% if column_list %}
+        <p>dwad</p>
+
+    {% else %}
+        <hr class style="border-top": 30px dashed #f2f2f2;>
+        <div class="row justify-content-center">
+            <a style="font-family: sans-serif; color: black" href="/article/article_list/?search=openstack" >OpenStack系列文章</a>  
+        </div>
+        <hr class style="border-top": 2px dashed #f2f2f2;>
+    
+        <div class="row justify-content-center">
+            <a style="font-family: sans-serif; color: black" href="/article/article_list/?search=Python" >Python系列文章</a>  
+        </div>
+        <hr class style="border-top": 2px dashed #f2f2f2;>
+    
+        <div class="row justify-content-center">
+            <a style="font-family: sans-serif; color: black" href="/article/article_list/?search=随笔" >随笔</a>  
+        </div>
+        <hr class style="border-top": 2px dashed #f2f2f2;>    
+    {% endif %}
+
+</div>
+
+{% endblock content %}
